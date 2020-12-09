@@ -15,8 +15,14 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    void fillParameters();
+
 private slots:
     void on_pushButton_clicked();
+
+    void on_toolButtonRepo_clicked();
+
+    void on_toolButtonRevision_clicked();
 
 private:
     Ui::MainWindow *ui;

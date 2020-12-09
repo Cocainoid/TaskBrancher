@@ -11,24 +11,31 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
-    delete ui;
+    delete ui;    
 }
 
+void MainWindow::fillParameters()
+{
+   ui->taskType->addItem("feature");
+   ui->taskDoer->addItem("kobzev.a");
+}
 
 void MainWindow::on_pushButton_clicked()
 {
+
+}
+
+void MainWindow::on_toolButtonRepo_clicked()
+{
     QString repoBrowserPath = "C:/Program Files/TortoiseSVN/bin/TortoiseProc.exe";
     QStringList repoBrowserArguments;
-    repoBrowserArguments << "/command:repobrowser" << "/";
+    repoBrowserArguments << "/command:repobrowser" << "/outfile:./browser.txt";
 
     QProcess *repoBrowser = new QProcess();
     repoBrowser->start(repoBrowserPath, repoBrowserArguments);
+}
 
+void MainWindow::on_toolButtonRevision_clicked()
+{
 
-    QString cliPath = "C:/Program Files/TortoiseSVN/bin/svn.exe";
-    QStringList cliArguments;
-    cliArguments << "svn info" << "";
-
-    QProcess *commandLine = new QProcess();
-    commandLine->start(cliPath, cliArguments);
 }
